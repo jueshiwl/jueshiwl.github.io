@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="一纸流沙，一段过往。风轻云淡，地老天荒。">
+<meta name="description" content="在项目的开发过程中，ES6的使用越来越频繁，而其中的重点promise更是基本占据了我们整个项目，所以就想要对它进行更深入的了解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用命令将本地项目上传到git">
-<meta property="og:url" content="https://jueshiwl.github.io/2017/06/01/如何用命令将本地项目上传到git/index.html">
+<meta property="og:title" content="实现简单的promise">
+<meta property="og:url" content="https://jueshiwl.github.io/2017/03/21/实现简单的promise/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="一纸流沙，一段过往。风轻云淡，地老天荒。">
-<meta property="og:updated_time" content="2017-06-01T07:03:15.428Z">
+<meta property="og:description" content="在项目的开发过程中，ES6的使用越来越频繁，而其中的重点promise更是基本占据了我们整个项目，所以就想要对它进行更深入的了解。">
+<meta property="og:updated_time" content="2017-06-26T09:30:41.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何用命令将本地项目上传到git">
-<meta name="twitter:description" content="一纸流沙，一段过往。风轻云淡，地老天荒。">
+<meta name="twitter:title" content="实现简单的promise">
+<meta name="twitter:description" content="在项目的开发过程中，ES6的使用越来越频繁，而其中的重点promise更是基本占据了我们整个项目，所以就想要对它进行更深入的了解。">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://jueshiwl.github.io/2017/06/01/如何用命令将本地项目上传到git/"/>
+  <link rel="canonical" href="https://jueshiwl.github.io/2017/03/21/实现简单的promise/"/>
 
 
 
 
 
-  <title>如何用命令将本地项目上传到git | 我的博客</title>
+  <title>实现简单的promise | 我的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +243,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://jueshiwl.github.io/2017/06/01/如何用命令将本地项目上传到git/">
+    <link itemprop="mainEntityOfPage" href="https://jueshiwl.github.io/2017/03/21/实现简单的promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="流沙">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何用命令将本地项目上传到git</h1>
+          <h1 class="post-title" itemprop="name headline">实现简单的promise</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T14:18:38+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T15:51:13+08:00">
+                2017-03-21
               </time>
             
 
@@ -307,7 +307,49 @@
       
 
       
-        
+        <p>在项目的开发过程中，ES6的使用越来越频繁，而其中的重点promise更是基本占据了我们整个项目，所以就想要对它进行更深入的了解。</p>
+<a id="more"></a>
+<p>让我们先打印一下Promise，正如大家所看到的Promise实际上就是一个构造函数。</p>
+<p>我们都知道promise有三种状态（pending,fulfilled,rejected,当resolve执行的时候实际上是把状态值pending变成了 fulfilled，我现在想要来写一个简单的Promise</p>
+<p>```<br>function Promise(fun) {<br>    this.stauts = ‘pending’</p>
+<pre><code>fun(_resolve, _reject)
+
+this.prototype.then = function (resolve, reject) {
+    this.resolve = resolve
+    this.reject = reject
+}
+
+function _resolve(data) {
+    this.stauts = &quot;success&quot;
+    this.resolve(data || &apos;&apos;)
+}
+function _reject(err) {
+    this.stauts = &quot;success&quot;
+    this.err = err
+}
+</code></pre><p>}</p>
+<p>new Promise(function(resolve, reject) {<br>        setTimeout(function(){<br>            resolve()<br>        }, 1000)<br>    }).then(function(){<br>        console.log(‘1秒’)<br>    })</p>
+<p>一运行就爆了个错误 <img src=""><br>看了一下应该是自己原型的写法有问题，换了一种 写法</p>
+<p>function Promise(fun) {<br>    var self = this</p>
+<pre><code>this.stauts = &apos;pending&apos;
+
+fun(_resolve, _reject)
+
+
+function _resolve(data) {
+    self.stauts = &quot;success&quot;
+    self.resolve(data || &apos;&apos;)
+}
+function _reject(err) {
+    self.stauts = &quot;success&quot;
+    self.resolve(err || &apos;&apos;)
+}
+</code></pre><p>}</p>
+<p>Promise.prototype = {<br>    then: function(resolve, reject) {<br>        this.resolve = resolve || function(){}<br>        this.reject = reject || function(){}<br>    }<br>}</p>
+<p>new Promise(function(resolve, reject) {<br>        setTimeout(function(){<br>            resolve()<br>        }, 1000)<br>    }).then(function(){<br>        console.log(‘1秒’)<br>    })</p>
+<p>运行一下发现没问题，一秒后控制台输出了‘1秒’，但是这样也只是实现了简单的resolve，还有就是stauts这个状态根本就没有使用到</p>
+<p>首先它是一个构造函数，接受一个函数作为参数，这两个参数也是函数，</p>
+
       
     </div>
 
@@ -343,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/12/node-sass报错vendor的解决方法/" rel="next" title="node-sass报错vendor的解决方法">
-                <i class="fa fa-chevron-left"></i> node-sass报错vendor的解决方法
+              <a href="/2016/03/21/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -352,6 +394,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/12/vue-cli构建的项目加入sass的配置/" rel="prev" title="vue-cli构建的项目加入sass的配置">
+                vue-cli构建的项目加入sass的配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
