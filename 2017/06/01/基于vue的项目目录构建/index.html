@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。  src assets                存放需要webpack打包的静态文件 fonts                 字体文件 images">
+<meta name="description" content="其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。 12345678910111213141516171819202122232425262728- src    - assets                存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于vue的项目目录构建">
 <meta property="og:url" content="https://jueshiwl.github.io/2017/06/01/基于vue的项目目录构建/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。  src assets                存放需要webpack打包的静态文件 fonts                 字体文件 images">
-<meta property="og:updated_time" content="2017-07-07T03:18:29.000Z">
+<meta property="og:description" content="其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。 12345678910111213141516171819202122232425262728- src    - assets                存">
+<meta property="og:updated_time" content="2017-07-27T15:00:16.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于vue的项目目录构建">
-<meta name="twitter:description" content="其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。  src assets                存放需要webpack打包的静态文件 fonts                 字体文件 images">
+<meta name="twitter:description" content="其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。 12345678910111213141516171819202122232425262728- src    - assets                存">
 
 
 
@@ -308,52 +308,7 @@
 
       
         <p>其实只要是项目都会涉及到项目目录构建的问题，因为工作都是在别人构建好的项目目录上开发，没有考虑过这个问题。写的demo也基本就是vue-cli里面的目录稍微调整下，但是当我看了一些别人的源码后，我才发先项目目录的构建也是一个重要的东西。</p>
-<ul>
-<li>src<ul>
-<li>assets                存放需要webpack打包的静态文件<ul>
-<li>fonts                 字体文件</li>
-<li>images                图片</li>
-<li>js                    一些外部的js库</li>
-<li>scss                  一些通用的css</li>
-</ul>
-</li>
-<li>components            存放项目中一些通用的组件</li>
-<li>router                存放页面路由<ul>
-<li>index.js              路由总入口</li>
-<li>xxx.js                相关模块的路由配置</li>
-<li>…</li>
-</ul>
-</li>
-<li>mock                  存放mock数据(前后端分离mock数据使用，按需求增删)<ul>
-<li>xxx</li>
-</ul>
-</li>
-<li>vuex                  vuex(需要使用vuex的时候加入)<ul>
-<li>action.js             处理methods的dispatch过来的名称与之对应，并提交到mutations</li>
-<li>getter.js             存放共用的 Computed Getters，实现在多个组件之间的共享</li>
-<li>store.js              存放把modules文件下的多个模块集合在一起来创建 Vuex 实例,并导出 store</li>
-<li>mutations-type.js     定义总的不同事件的类型，方便modules文件中的模块去用</li>
-<li>modules               存放不同的模块功能区，里面可以有自己的actions、mutations，store等</li>
-</ul>
-</li>
-<li>services              存放所有请求<ul>
-<li>xhr.js                封装好的http方法</li>
-<li>xxx.js                相关模块的数据发送/请求</li>
-<li>…</li>
-</ul>
-</li>
-<li>views                 页面层<ul>
-<li>index                 每一个页面作为单独的组件<ul>
-<li>xxx</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>App.vue               项目的入口组件</li>
-<li>main.js               项目的入口文件(引入一些通用的库，全局配置)</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- src</div><div class="line">    - assets                存放需要webpack打包的静态文件</div><div class="line">        - fonts                 字体文件</div><div class="line">        - images                图片</div><div class="line">        - js                    一些外部的js库</div><div class="line">        - scss                  一些通用的css</div><div class="line">    - components            存放项目中一些通用的组件</div><div class="line">    - router                存放页面路由</div><div class="line">        - index.js              路由总入口</div><div class="line">        - xxx.js                相关模块的路由配置</div><div class="line">        - ...</div><div class="line">    - mock                  存放mock数据(前后端分离mock数据使用，按需求增删)</div><div class="line">        - xxx</div><div class="line">    - vuex                  vuex(需要使用vuex的时候加入)</div><div class="line">        - action.js             处理methods的dispatch过来的名称与之对应，并提交到mutations</div><div class="line">        - getter.js             存放共用的 Computed Getters，实现在多个组件之间的共享</div><div class="line">        - store.js              存放把modules文件下的多个模块集合在一起来创建 Vuex 实例,并导出 store</div><div class="line">        - mutations-type.js     定义总的不同事件的类型，方便modules文件中的模块去用</div><div class="line">        - modules               存放不同的模块功能区，里面可以有自己的actions、mutations，store等</div><div class="line">    - services              存放所有请求</div><div class="line">        - xhr.js                封装好的http方法</div><div class="line">        - xxx.js                相关模块的数据发送/请求</div><div class="line">        - ...</div><div class="line">    - views                 页面层</div><div class="line">        - index                 每一个页面作为单独的组件</div><div class="line">            - xxx</div><div class="line">    - App.vue               项目的入口组件</div><div class="line">    - main.js               项目的入口文件(引入一些通用的库，全局配置)</div></pre></td></tr></table></figure>
 <p>一直都是我原来一直没有想过项目目录应该怎么构建，哪些东西需要抽离出来，哪些是可以按层级目录</p>
 
       
@@ -400,6 +355,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/04/vue-cli构建的项目加入sass的配置/" rel="prev" title="vue-cli构建的项目加入sass的配置">
+                vue-cli构建的项目加入sass的配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
